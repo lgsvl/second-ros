@@ -1,0 +1,34 @@
+version: "2.4"
+services:
+  
+  build-ros:
+    build:
+      context: ./docker
+    image: lgsvl/second-ros:latest
+    container_name: second-ros-build
+    volumes:
+      - ./catkin_ws:/root/catkin_ws
+      - ./scripts:/root/scripts
+    command: /root/scripts/build.sh
+  
+  second-ros:
+    build:
+      context: ./docker
+    image: lgsvl/second-ros:latest
+    container_name: second-ros
+    volumes:
+      - ${XAUTHORITY}:/tmp/.Xauthority
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./catkin_ws:/root/catkin_ws
+      - ./data:/root/data
+      - ./model:/root/model
+      - ./scripts:/root/scripts
+      - ./second.pytorch:/root/second.pytorch
+      - ./kitti_parser.py:/root/kitti_parser.py
+    environment:
+      - DISPLAY
+      - XAUTHORITY=/tmp/.Xauthority
+      - ROOT_DIR=${PWD}
+    runtime: nvidia
+    network_mode: host
+    command: /root/scripts/build_and_run.sh

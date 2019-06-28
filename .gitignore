@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.vscode
+*.so
+*.o
+*.out
+catkin_ws/build/
+catkin_ws/devel/
