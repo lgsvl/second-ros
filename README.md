@@ -19,7 +19,7 @@ In this project, we are going to use LGSVL Simulator Python APIs to randomly gen
   - [Collecting Synthetic Data](#collecting-synthetic-data)
   - [Preprocessing Data](#preprocessing-data)
   - [Config](#config)
-- [How to Train SECOND Model](#how-to-train-second-model)
+- [How to Train SECOND Network](#how-to-train-second-network)
   - [Data Visualization](#data-visualization)
   - [Training Deep Neural Network](#training-deep-neural-network)
 - [How to Deploy a Model](#how-to-deploy-a-model)
